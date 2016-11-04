@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -126,7 +127,11 @@ public class MainActivity extends AppCompatActivity implements OnMessageReceiveL
             } catch (Exception e) {
                 e.printStackTrace();
                 //TODO обработка отключения сервера
-                //s.close();
+                try {
+                    s.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     }
