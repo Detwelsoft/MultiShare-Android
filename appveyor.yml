@@ -29,6 +29,8 @@ cache:
   - "%USERPROFILE%\\.m2"
   - "%USERPROFILE%\\.gradle"
 
+skip_tags: true
+
 deploy:
   - provider: GitHub
     tag: night
