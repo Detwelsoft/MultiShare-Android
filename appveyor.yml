@@ -23,7 +23,19 @@ build_script:
 
 artifacts:
   - path: "app\\build\\outputs\\apk"
+    name: MultiShare-Android
 
 cache:
   - "%USERPROFILE%\\.m2"
   - "%USERPROFILE%\\.gradle"
+
+deploy:
+  - provider: GitHub
+    tag: night
+    release: MultiShare-Android v$(APPVEYOR_BUILD_VERSION)
+    description: "Релиз MultiShare-Android, автоматически собранный с помощью AppVeyor"
+    auth_token:
+      secure: hJNjTvWa0u5NMM7SUMuO9Yr5/bF6Wd78mUebkrvhMTm9ZoT36GuH2pHZgpLoAAgT
+    artifact: MultiShare-Android
+    prerelease: true
+    force_update: true
